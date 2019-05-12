@@ -1,0 +1,149 @@
+﻿<Window x:Class="TabMenu2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TabMenu2"
+        mc:Ignorable="d"
+        xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Height="400" Width="840" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None">
+    <Grid>
+      <Grid MouseDown="MoveWindow" Height="40" VerticalAlignment="Top" Background="#FF9C27B0">
+        <TextBlock Text="Useless area calculator" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" FontFamily="Champagne &amp; Limousines" />
+        <Button HorizontalAlignment="Right" VerticalAlignment="Center" Background="{x:Null}" BorderBrush="{x:Null}" Click="Close">
+          <materialDesign:PackIcon Kind="Power"/>
+        </Button>
+      </Grid>
+        
+        <Grid Margin="0 40 0 0">
+            <dragablz:TabablzControl>
+                <dragablz:TabablzControl.InterTabController>
+                    <dragablz:InterTabController/>
+                </dragablz:TabablzControl.InterTabController>
+
+              <!-- Sin(x) 1st part -->
+              
+                <TabItem Header="Sin(x)" Padding="25">
+                  <Grid Margin="50, 25">
+                      <Grid Background="{Binding Background}">
+                        <Border Background="{Binding Background}" />
+                      </Grid>
+                      <Canvas x:Name="sincanvas">
+                        <Canvas.RenderTransform>
+                          <ScaleTransform ScaleY="-1" />
+                        </Canvas.RenderTransform>
+                      </Canvas>
+                      <Label Margin="-20,-7">
+                        <TextBlock Style="{DynamicResource MaterialDesignButtonTextBlock}">Calculated Area:</TextBlock></Label>
+                      <TextBlock Margin="100,0,0,0" Text="{Binding Path=SinCorrectTill}"/>
+                    <Button x:Name="sinButton" Grid.Column="1" Grid.Row="6" Height="50" Width="100" Margin="0,0,25,0" HorizontalAlignment="Right" Content="Calc" Click="CalcSinClicked"/>
+                      <ProgressBar  IsIndeterminate="{Binding Path=isSinProgress}"
+                                    Width="100"
+                                    Value="0"
+                                    Maximum="100"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Right"
+                                    Margin="0,50,25,0"/>
+                    <TextBox Text="{Binding Path=SinMinPrec}" HorizontalAlignment="Left" Margin="-20,0" ></TextBox>
+                    <Slider x:Name="SinPrecSlider"
+                        Minimum="{Binding Path=SinMinPrec}"
+                        Maximum="{Binding Path=SinMaxPrec}"
+                        IsMoveToPointEnabled="True"
+                        Margin="5,0,50,0"
+                        Value="{Binding Path=SinPrecision}"
+                        VerticalAlignment="Bottom"
+                        />
+                    <TextBlock Text="{Binding Path=SinPrecision}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,25"></TextBlock>
+                    <TextBox Text="{Binding Path=SinMaxPrec}" HorizontalAlignment="Right"></TextBox>
+                    </Grid>
+                  </TabItem>
+              
+              <!-- Sqrt(x) 2nd part -->
+              
+                <TabItem Header="Sqrt(x)">
+                  <Grid Margin="50, 25">
+                    <Grid Background="{Binding Background}">
+                      <Border Background="{Binding Background}" />
+                    </Grid>
+                    <Canvas x:Name="sqrtcanvas">
+                      <Canvas.RenderTransform>
+                        <ScaleTransform ScaleY="-1" />
+                      </Canvas.RenderTransform>
+                    </Canvas>
+                    <Label Margin="-20,-7">
+                      <TextBlock Style="{DynamicResource MaterialDesignButtonTextBlock}">Calculated Area:</TextBlock>
+                    </Label>
+                    <TextBlock Margin="100,0,0,0" Text="{Binding Path=SqrtCorrectTill}"/>
+                    <Button x:Name="sqrtButton" Grid.Column="1" Grid.Row="6" Height="50" Width="100" Margin="0,0,25,0" HorizontalAlignment="Right" Content="Calc" Click="CalcSqrtClicked"/>
+                    <ProgressBar  IsIndeterminate="{Binding Path=isSqrtProgress}"
+                                  Width="100"
+                                  Value="0"
+                                  Maximum="100"
+                                  VerticalAlignment="Center"
+                                  HorizontalAlignment="Right"
+                                  Margin="0,50,25,0"/>
+                    <TextBox Text="{Binding Path=SqrtMinPrec}" HorizontalAlignment="Left" Margin="-20,0" ></TextBox>
+                    <Slider x:Name="SqrtPrecSlider"
+                        Minimum="{Binding Path=SqrtMinPrec}"
+                        Maximum="{Binding Path=SqrtMaxPrec}"
+                        IsMoveToPointEnabled="True"
+                        Margin="5,0,50,0"
+                        Value="{Binding Path=SqrtPrecision}"
+                        VerticalAlignment="Bottom"
+                        />
+                    <TextBlock Text="{Binding Path=SqrtPrecision}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,25"></TextBlock>
+                    <TextBox Text="{Binding Path=SqrtMaxPrec}" HorizontalAlignment="Right"></TextBox>
+                  </Grid>
+                </TabItem>
+
+              <!-- Sech(x) 3rd part -->
+              
+                <TabItem Header="Sech(x)">
+                  <Grid Margin="50, 25">
+                    <Grid Background="{Binding Background}">
+                      <Border Background="{Binding Background}" />
+                    </Grid>
+                    <Canvas x:Name="sechcanvas">
+                      <Canvas.RenderTransform>
+                        <ScaleTransform ScaleY="-1" />
+                      </Canvas.RenderTransform>
+                    </Canvas>
+                    <Label Margin="-20,-7">
+                      <TextBlock Style="{DynamicResource MaterialDesignButtonTextBlock}">Calculated Area:</TextBlock>
+                    </Label>
+                    <TextBlock Margin="100,0,0,0" Text="{Binding Path=SechCorrectTill}"/>
+                    <Button x:Name="sechButton" Grid.Column="1" Grid.Row="6" Height="50" Width="100" Margin="0,0,25,0" HorizontalAlignment="Right" Content="Calc" Click="CalcSechClicked"/>
+                    <ProgressBar  IsIndeterminate="{Binding Path=isSechProgress}"
+                                  Width="100"
+                                  Value="0"
+                                  Maximum="100"
+                                  VerticalAlignment="Center"
+                                  HorizontalAlignment="Right"
+                                  Margin="0,50,25,0"/>
+                    <TextBox Text="{Binding Path=MinSechPrec}" HorizontalAlignment="Left" Margin="-20,0" ></TextBox>
+                    <Slider x:Name="SechPrecSlider"
+                        Minimum="{Binding Path=SechMinPrec}"
+                        Maximum="{Binding Path=SechMaxPrec}"
+                        IsMoveToPointEnabled="True"
+                        Margin="5,0,50,0"
+                        Value="{Binding Path=SechPrecision}"
+                        VerticalAlignment="Bottom"
+                        />
+                    <TextBlock Text="{Binding Path=SechPrecision}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,25"></TextBlock>
+                    <TextBox Text="{Binding Path=SechMaxPrec}" HorizontalAlignment="Right"></TextBox>
+                  </Grid>
+                </TabItem>
+              
+              
+              
+                <TabItem>
+                    <TabItem.Header>
+                        <materialDesign:PackIcon Kind="GithubCircle" Foreground="{DynamicResource PrimaryHueLightBrush}"/>
+                    </TabItem.Header>
+                    <TextBlock Style="{DynamicResource MaterialDesignHeadlineTextBlock}" Text="github.com/GergoSz" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </TabItem>
+            </dragablz:TabablzControl>
+        </Grid>
+    </Grid>
+</Window>
