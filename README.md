@@ -2,6 +2,9 @@
 
 Calculates the areas under 3 different functions.
 
+![Alt text](/TabMenu2/calcprintscreen.png?raw=true "Title")
+
+
 The TabMenu WPF and Material Design setup is from youtube channel http://youtube.com/designcomwpf
 
 **CLONE OR DOWNLOAD**
