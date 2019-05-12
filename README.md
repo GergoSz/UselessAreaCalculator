@@ -1,5 +1,8 @@
-# TabMenu2
-New TabMenu WPF and Material Design for my youtube channel http://youtube.com/designcomwpf
+# UselessAreaCalculator
+
+Calculates the areas under 3 different functions.
+
+The TabMenu WPF and Material Design setup is from youtube channel http://youtube.com/designcomwpf
 
 **CLONE OR DOWNLOAD**
 * Open the file _TabMenu2.sln_ with Visual Studio
